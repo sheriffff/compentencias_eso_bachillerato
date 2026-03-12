@@ -121,14 +121,18 @@ export function useExcelGenerator() {
       }
     }
 
+    const s1Row = []
+    let curRow = 3
     for (let s = 0; s < S; s++) {
-      const r = 3 + s
+      if (s > 0 && subcomps[s].compCodigo !== subcomps[s - 1].compCodigo) curRow++
+      s1Row.push(curRow)
+      const r = curRow
       const compCell = ws1.getCell(r, 1)
-      compCell.value = subcomps[s].compNombre
+      compCell.value = `${subcomps[s].compCodigo}. ${subcomps[s].compNombre}`
       compCell.font = { bold: true }
       compCell.border = thinBorder
       const subCell = ws1.getCell(r, 2)
-      subCell.value = subcomps[s].subNombre
+      subCell.value = `${subcomps[s].subCodigo}. ${subcomps[s].subNombre}`
       subCell.border = thinBorder
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < evalCounts[i]; j++) {
@@ -138,6 +142,7 @@ export function useExcelGenerator() {
           cell.border = thinBorder
         }
       }
+      curRow++
     }
 
     ws1.getColumn(1).width = 30
@@ -306,7 +311,7 @@ export function useExcelGenerator() {
       for (let i = 0; i < 3; i++) {
         if (evalCounts[i] === 0) continue
         for (let s = 0; s < S; s++) {
-          const flagRow = 3 + s
+          const flagRow = s1Row[s]
           const numTerms = []
           const denTerms = []
           for (let j = 0; j < evalCounts[i]; j++) {

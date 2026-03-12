@@ -51,14 +51,12 @@ function onDragEnd() {
         @dragover.prevent
       >
         <h3 class="font-medium text-gray-800 mb-3">{{ ev.nombre }}</h3>
-        <div class="flex gap-3 mb-3">
+        <div class="mb-3">
           <button
-            v-for="tipo in ['Examen', 'Cuaderno', 'Trabajo']"
-            :key="tipo"
-            @click="emit('add', i, tipo)"
+            @click="emit('add', i, 'Item')"
             class="text-sm text-indigo-600 hover:text-indigo-800 font-medium cursor-pointer"
           >
-            + {{ tipo }}
+            + Item
           </button>
         </div>
         <div
