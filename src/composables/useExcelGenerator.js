@@ -278,10 +278,10 @@ export function useExcelGenerator() {
 
     for (let r = 3; r < 3 + ROWS; r++) {
       const nameCell = ws3.getCell(r, 1)
-      nameCell.value = { formula: `'Notas Evaluables'!A${r}` }
+      nameCell.value = { formula: `IF('Notas Evaluables'!A${r}=0,"",'Notas Evaluables'!A${r})` }
       nameCell.border = thinBorder
       const apCell = ws3.getCell(r, 2)
-      apCell.value = { formula: `'Notas Evaluables'!B${r}` }
+      apCell.value = { formula: `IF('Notas Evaluables'!B${r}=0,"",'Notas Evaluables'!B${r})` }
       apCell.border = thinBorder
 
       for (let i = 0; i < 3; i++) {

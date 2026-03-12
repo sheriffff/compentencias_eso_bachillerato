@@ -51,6 +51,16 @@ function onDragEnd() {
         @dragover.prevent
       >
         <h3 class="font-medium text-gray-800 mb-3">{{ ev.nombre }}</h3>
+        <div class="flex gap-3 mb-3">
+          <button
+            v-for="tipo in ['Examen', 'Cuaderno', 'Trabajo']"
+            :key="tipo"
+            @click="emit('add', i, tipo)"
+            class="text-sm text-indigo-600 hover:text-indigo-800 font-medium cursor-pointer"
+          >
+            + {{ tipo }}
+          </button>
+        </div>
         <div
           v-for="(evaluable, j) in ev.evaluables"
           :key="evaluable.id"
@@ -72,16 +82,6 @@ function onDragEnd() {
             class="text-red-400 hover:text-red-600 text-lg leading-none px-1"
           >
             &times;
-          </button>
-        </div>
-        <div class="flex gap-3 mt-2">
-          <button
-            v-for="tipo in ['Examen', 'Cuaderno', 'Trabajo']"
-            :key="tipo"
-            @click="emit('add', i, tipo)"
-            class="text-sm text-indigo-600 hover:text-indigo-800 font-medium cursor-pointer"
-          >
-            + {{ tipo }}
           </button>
         </div>
       </div>

@@ -92,8 +92,8 @@ function download() {
             <li>Elige el curso.</li>
             <li>Configura los evaluables (exámenes, cuadernos, trabajos) de cada evaluación.</li>
             <li>Descarga el Excel.</li>
-            <li>En la hoja "Comp y Crit", rellena los flags (0/1) para indicar qué evaluable evalúa cada criterio.</li>
-            <li>En la hoja "Notas EV", pon las notas de cada alumno. Las medias y competencias se calculan solas.</li>
+            <li>En la hoja "Competencias y Criterios", rellena los flags (0/1) para indicar qué evaluable evalúa cada criterio.</li>
+            <li>En la hoja "Notas Evaluables", pon las notas de cada alumno. Las medias y competencias se calculan solas.</li>
           </ol>
           <button @click="showHelp = false" class="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 cursor-pointer">Cerrar</button>
         </div>
