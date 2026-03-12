@@ -43,9 +43,11 @@ watch(cursoSeleccionado, () => {
   Object.keys(flagStore).forEach(k => delete flagStore[k])
 })
 
-function addEvaluable(evalIdx) {
-  const n = evaluaciones[evalIdx].evaluables.length + 1
-  evaluaciones[evalIdx].evaluables.push({ id: nextId++, nombre: `Evaluable ${n}` })
+function addEvaluable(evalIdx, tipo) {
+  const count = evaluaciones[evalIdx].evaluables.filter(e => e.tipo === tipo).length + 1
+  const prefijos = { Examen: 'Ex', Cuaderno: 'C', Trabajo: 'T' }
+  const nombre = `${prefijos[tipo]}${count}`
+  evaluaciones[evalIdx].evaluables.push({ id: nextId++, nombre, tipo })
 }
 
 function removeEvaluable(evalIdx, evIdx) {
@@ -54,6 +56,12 @@ function removeEvaluable(evalIdx, evIdx) {
 
 function renameEvaluable(evalIdx, evIdx, name) {
   evaluaciones[evalIdx].evaluables[evIdx].nombre = name
+}
+
+function reorderEvaluable(evalIdx, from, to) {
+  const list = evaluaciones[evalIdx].evaluables
+  const [item] = list.splice(from, 1)
+  list.splice(to, 0, item)
 }
 
 function getFlag(evalIdx, subIdx, evId) {
@@ -88,21 +96,16 @@ function download() {
           @add="addEvaluable"
           @remove="removeEvaluable"
           @rename="renameEvaluable"
+          @reorder="reorderEvaluable"
         />
 
-        <div v-if="hasEvaluables" class="mb-8">
-          <h2 class="text-lg font-semibold text-gray-700 mb-4">Flags por evaluación</h2>
-          <FlagTable
-            v-for="(ev, i) in evaluaciones"
-            :key="i"
-            :eval-index="i"
-            :eval-nombre="ev.nombre"
-            :evaluables="ev.evaluables"
-            :subcompetencias="flatSubcomps"
-            :get-flag="getFlag"
-            :toggle-flag="toggleFlag"
-          />
-        </div>
+        <FlagTable
+          v-if="hasEvaluables"
+          :evaluaciones="evaluaciones"
+          :subcompetencias="flatSubcomps"
+          :get-flag="getFlag"
+          :toggle-flag="toggleFlag"
+        />
 
         <button
           v-if="hasEvaluables"

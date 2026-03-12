@@ -1,9 +1,42 @@
 <script setup>
+import { ref } from 'vue'
+
 defineProps({
   evaluaciones: Array
 })
 
-const emit = defineEmits(['add', 'remove', 'rename'])
+const emit = defineEmits(['add', 'remove', 'rename', 'reorder'])
+
+const dragEval = ref(null)
+const dragIdx = ref(null)
+const overIdx = ref(null)
+
+function onDragStart(evalIndex, j) {
+  dragEval.value = evalIndex
+  dragIdx.value = j
+}
+
+function onDragOver(e, evalIndex, j) {
+  if (dragEval.value !== evalIndex) return
+  e.preventDefault()
+  overIdx.value = j
+}
+
+function onDrop(evalIndex) {
+  if (dragEval.value !== evalIndex || dragIdx.value === null || overIdx.value === null) return
+  if (dragIdx.value !== overIdx.value) {
+    emit('reorder', evalIndex, dragIdx.value, overIdx.value)
+  }
+  dragEval.value = null
+  dragIdx.value = null
+  overIdx.value = null
+}
+
+function onDragEnd() {
+  dragEval.value = null
+  dragIdx.value = null
+  overIdx.value = null
+}
 </script>
 
 <template>
@@ -14,13 +47,21 @@ const emit = defineEmits(['add', 'remove', 'rename'])
         v-for="(ev, i) in evaluaciones"
         :key="i"
         class="border border-gray-200 rounded-lg p-4 bg-white shadow-sm"
+        @drop="onDrop(i)"
+        @dragover.prevent
       >
         <h3 class="font-medium text-gray-800 mb-3">{{ ev.nombre }}</h3>
         <div
           v-for="(evaluable, j) in ev.evaluables"
           :key="evaluable.id"
-          class="flex items-center gap-2 mb-2"
+          draggable="true"
+          @dragstart="onDragStart(i, j)"
+          @dragover="onDragOver($event, i, j)"
+          @dragend="onDragEnd"
+          class="flex items-center gap-2 mb-2 rounded transition-colors"
+          :class="dragEval === i && overIdx === j ? 'bg-indigo-50' : ''"
         >
+          <span class="cursor-grab text-gray-400 hover:text-gray-600 text-sm select-none">⠿</span>
           <input
             :value="evaluable.nombre"
             @input="emit('rename', i, j, $event.target.value)"
@@ -33,12 +74,16 @@ const emit = defineEmits(['add', 'remove', 'rename'])
             &times;
           </button>
         </div>
-        <button
-          @click="emit('add', i)"
-          class="text-sm text-indigo-600 hover:text-indigo-800 font-medium mt-1"
-        >
-          + Evaluable
-        </button>
+        <div class="flex gap-3 mt-2">
+          <button
+            v-for="tipo in ['Examen', 'Cuaderno', 'Trabajo']"
+            :key="tipo"
+            @click="emit('add', i, tipo)"
+            class="text-sm text-indigo-600 hover:text-indigo-800 font-medium cursor-pointer"
+          >
+            + {{ tipo }}
+          </button>
+        </div>
       </div>
     </div>
   </div>

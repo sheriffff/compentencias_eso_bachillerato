@@ -130,5 +130,137 @@
         "subcompetencias": ["8.1", "8.2", "8.3"]
       }
     ]
+  },
+  "4ESO": {
+    "competencias": [
+      {
+        "codigo": "CCL",
+        "nombre": "Competencia en Comunicación Lingüística",
+        "subcompetencias": ["1.1", "1.2", "1.3", "1.4"]
+      },
+      {
+        "codigo": "CP",
+        "nombre": "Competencia Plurilingüe",
+        "subcompetencias": ["2.1", "2.2", "2.3"]
+      },
+      {
+        "codigo": "STEM",
+        "nombre": "Competencia Matemática y en Ciencia, Tecnología e Ingeniería",
+        "subcompetencias": ["3.1", "3.2", "3.3", "3.4"]
+      },
+      {
+        "codigo": "CD",
+        "nombre": "Competencia Digital",
+        "subcompetencias": ["4.1", "4.2", "4.3", "4.4"]
+      },
+      {
+        "codigo": "CPSAA",
+        "nombre": "Competencia Personal, Social y de Aprender a Aprender",
+        "subcompetencias": ["5.1", "5.2", "5.3"]
+      },
+      {
+        "codigo": "CC",
+        "nombre": "Competencia Ciudadana",
+        "subcompetencias": ["6.1", "6.2", "6.3"]
+      },
+      {
+        "codigo": "CE",
+        "nombre": "Competencia Emprendedora",
+        "subcompetencias": ["7.1", "7.2", "7.3"]
+      },
+      {
+        "codigo": "CCEC",
+        "nombre": "Competencia en Conciencia y Expresiones Culturales",
+        "subcompetencias": ["8.1", "8.2", "8.3"]
+      }
+    ]
+  },
+  "1BACH": {
+    "competencias": [
+      {
+        "codigo": "CCL",
+        "nombre": "Competencia en Comunicación Lingüística",
+        "subcompetencias": ["1.1", "1.2", "1.3", "1.4", "1.5"]
+      },
+      {
+        "codigo": "CP",
+        "nombre": "Competencia Plurilingüe",
+        "subcompetencias": ["2.1", "2.2", "2.3"]
+      },
+      {
+        "codigo": "STEM",
+        "nombre": "Competencia Matemática y en Ciencia, Tecnología e Ingeniería",
+        "subcompetencias": ["3.1", "3.2", "3.3", "3.4"]
+      },
+      {
+        "codigo": "CD",
+        "nombre": "Competencia Digital",
+        "subcompetencias": ["4.1", "4.2", "4.3", "4.4"]
+      },
+      {
+        "codigo": "CPSAA",
+        "nombre": "Competencia Personal, Social y de Aprender a Aprender",
+        "subcompetencias": ["5.1", "5.2", "5.3", "5.4"]
+      },
+      {
+        "codigo": "CC",
+        "nombre": "Competencia Ciudadana",
+        "subcompetencias": ["6.1", "6.2", "6.3"]
+      },
+      {
+        "codigo": "CE",
+        "nombre": "Competencia Emprendedora",
+        "subcompetencias": ["7.1", "7.2", "7.3"]
+      },
+      {
+        "codigo": "CCEC",
+        "nombre": "Competencia en Conciencia y Expresiones Culturales",
+        "subcompetencias": ["8.1", "8.2", "8.3", "8.4"]
+      }
+    ]
+  },
+  "2BACH": {
+    "competencias": [
+      {
+        "codigo": "CCL",
+        "nombre": "Competencia en Comunicación Lingüística",
+        "subcompetencias": ["1.1", "1.2", "1.3", "1.4", "1.5"]
+      },
+      {
+        "codigo": "CP",
+        "nombre": "Competencia Plurilingüe",
+        "subcompetencias": ["2.1", "2.2", "2.3"]
+      },
+      {
+        "codigo": "STEM",
+        "nombre": "Competencia Matemática y en Ciencia, Tecnología e Ingeniería",
+        "subcompetencias": ["3.1", "3.2", "3.3", "3.4", "3.5"]
+      },
+      {
+        "codigo": "CD",
+        "nombre": "Competencia Digital",
+        "subcompetencias": ["4.1", "4.2", "4.3", "4.4"]
+      },
+      {
+        "codigo": "CPSAA",
+        "nombre": "Competencia Personal, Social y de Aprender a Aprender",
+        "subcompetencias": ["5.1", "5.2", "5.3", "5.4"]
+      },
+      {
+        "codigo": "CC",
+        "nombre": "Competencia Ciudadana",
+        "subcompetencias": ["6.1", "6.2", "6.3"]
+      },
+      {
+        "codigo": "CE",
+        "nombre": "Competencia Emprendedora",
+        "subcompetencias": ["7.1", "7.2", "7.3"]
+      },
+      {
+        "codigo": "CCEC",
+        "nombre": "Competencia en Conciencia y Expresiones Culturales",
+        "subcompetencias": ["8.1", "8.2", "8.3", "8.4"]
+      }
+    ]
   }
 }
