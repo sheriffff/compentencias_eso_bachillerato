@@ -32,7 +32,7 @@ export function useExcelGenerator() {
     // ==========================================
     const wsInst = wb.addWorksheet('Instrucciones')
     const instrucciones = [
-      '1. Ve a la hoja "Competencias y Criterios" y rellena los flags (0 o 1) para indicar qué evaluable evalúa cada criterio.',
+      '1. Ve a la hoja "Competencias y Criterios" y rellena con 0s y 1s para indicar qué evaluable evalúa cada criterio.',
       '2. Ve a la hoja "Notas Evaluables". En la fila 1 puedes ajustar los pesos relativos de cada evaluable (por defecto reparten equitativamente).',
       '3. En esa misma hoja, introduce las notas de cada alumno. Las medias ponderadas se calculan automáticamente.',
       '4. La hoja "Notas Competencias" calcula automáticamente la nota de cada criterio y competencia a partir de los flags y las notas.'

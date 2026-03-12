@@ -92,7 +92,7 @@ function download() {
             <li>Elige el curso.</li>
             <li>Configura los evaluables (exámenes, cuadernos, trabajos) de cada evaluación.</li>
             <li>Descarga el Excel.</li>
-            <li>En la hoja "Competencias y Criterios", rellena los flags (0/1) para indicar qué evaluable evalúa cada criterio.</li>
+            <li>Ve a la hoja "Competencias y Criterios" y rellena con 0s y 1s para indicar qué evaluable evalúa cada criterio.</li>
             <li>En la hoja "Notas Evaluables", ajusta los pesos de la fila 1 si quieres y pon las notas de cada alumno.</li>
             <li>La hoja "Notas Competencias" se calcula sola.</li>
           </ol>
