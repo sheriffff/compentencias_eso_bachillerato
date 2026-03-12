@@ -88,12 +88,13 @@ function download() {
       <div v-if="showHelp" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" @click.self="showHelp = false">
         <div class="bg-white rounded-xl shadow-xl p-6 max-w-md mx-4">
           <h2 class="text-lg font-bold text-gray-800 mb-3">Cómo usar</h2>
-          <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2">
+          <ol class="list-decimal list-inside text-lg text-gray-700 space-y-3">
             <li>Elige el curso.</li>
             <li>Configura los evaluables (exámenes, cuadernos, trabajos) de cada evaluación.</li>
             <li>Descarga el Excel.</li>
             <li>En la hoja "Competencias y Criterios", rellena los flags (0/1) para indicar qué evaluable evalúa cada criterio.</li>
-            <li>En la hoja "Notas Evaluables", pon las notas de cada alumno. Las medias y competencias se calculan solas.</li>
+            <li>En la hoja "Notas Evaluables", ajusta los pesos de la fila 1 si quieres y pon las notas de cada alumno.</li>
+            <li>La hoja "Notas Competencias" se calcula sola.</li>
           </ol>
           <button @click="showHelp = false" class="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 cursor-pointer">Cerrar</button>
         </div>

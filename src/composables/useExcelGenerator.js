@@ -27,6 +27,25 @@ export function useExcelGenerator() {
     const evalCounts = evaluaciones.map(e => e.evaluables.length)
     const ROWS = 30
 
+    // ==========================================
+    // Sheet 0: Instrucciones
+    // ==========================================
+    const wsInst = wb.addWorksheet('Instrucciones')
+    const instrucciones = [
+      '1. Ve a la hoja "Competencias y Criterios" y rellena los flags (0 o 1) para indicar qué evaluable evalúa cada criterio.',
+      '2. Ve a la hoja "Notas Evaluables". En la fila 1 puedes ajustar los pesos relativos de cada evaluable (por defecto reparten equitativamente).',
+      '3. En esa misma hoja, introduce las notas de cada alumno. Las medias ponderadas se calculan automáticamente.',
+      '4. La hoja "Notas Competencias" calcula automáticamente la nota de cada criterio y competencia a partir de los flags y las notas.'
+    ]
+    wsInst.getCell(1, 1).value = 'Instrucciones'
+    wsInst.getCell(1, 1).font = { bold: true, size: 16 }
+    instrucciones.forEach((txt, idx) => {
+      const cell = wsInst.getCell(3 + idx, 1)
+      cell.value = txt
+      cell.font = { size: 12 }
+    })
+    wsInst.getColumn(1).width = 120
+
     const headerFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4472C4' } }
     const headerFont = { bold: true, color: { argb: 'FFFFFFFF' }, size: 11 }
     const subHeaderFill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFD9E2F3' } }
