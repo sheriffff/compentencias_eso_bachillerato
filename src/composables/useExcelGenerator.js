@@ -20,15 +20,8 @@ export function useExcelGenerator() {
     return weights
   }
 
-  async function generateExcel(cursoNombre, competencias, evaluaciones, flags) {
+  async function generateExcel(cursoNombre, subcomps, evaluaciones, flags) {
     const wb = new ExcelJS.Workbook()
-
-    const subcomps = []
-    for (const c of competencias) {
-      for (const sub of c.subcompetencias) {
-        subcomps.push({ comp: c.codigo, sub })
-      }
-    }
 
     const S = subcomps.length
     const evalCounts = evaluaciones.map(e => e.evaluables.length)
@@ -112,11 +105,11 @@ export function useExcelGenerator() {
     for (let s = 0; s < S; s++) {
       const r = 3 + s
       const compCell = ws1.getCell(r, 1)
-      compCell.value = subcomps[s].comp
+      compCell.value = subcomps[s].compNombre
       compCell.font = { bold: true }
       compCell.border = thinBorder
       const subCell = ws1.getCell(r, 2)
-      subCell.value = subcomps[s].sub
+      subCell.value = subcomps[s].subNombre
       subCell.border = thinBorder
       for (let i = 0; i < 3; i++) {
         for (let j = 0; j < evalCounts[i]; j++) {
@@ -128,8 +121,8 @@ export function useExcelGenerator() {
       }
     }
 
-    ws1.getColumn(1).width = 8
-    ws1.getColumn(2).width = 8
+    ws1.getColumn(1).width = 30
+    ws1.getColumn(2).width = 40
     for (let col = 3; col < c1; col++) {
       if (ws1.getColumn(col)) ws1.getColumn(col).width = 12
     }
@@ -267,7 +260,7 @@ export function useExcelGenerator() {
     for (let i = 0; i < 3; i++) {
       for (let s = 0; s < S; s++) {
         const cell = ws3.getCell(2, s3Start[i] + s)
-        cell.value = `${subcomps[s].comp} ${subcomps[s].sub}`
+        cell.value = subcomps[s].subCodigo
         cell.fill = subHeaderFill
         cell.font = { bold: true, size: 9 }
         cell.alignment = { horizontal: 'center' }
@@ -276,7 +269,7 @@ export function useExcelGenerator() {
     }
     for (let s = 0; s < S; s++) {
       const cell = ws3.getCell(2, s3Final + s)
-      cell.value = `${subcomps[s].comp} ${subcomps[s].sub}`
+      cell.value = subcomps[s].subCodigo
       cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFC6EFCE' } }
       cell.font = { bold: true, size: 9 }
       cell.alignment = { horizontal: 'center' }

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
-import competenciasData from './data/competencias.json'
+import data from './data/competencias.json'
 import CursoSelector from './components/CursoSelector.vue'
 import EvalConfig from './components/EvalConfig.vue'
 import FlagTable from './components/FlagTable.vue'
@@ -19,16 +19,27 @@ const evaluaciones = reactive([
 
 const flagStore = reactive({})
 
-const competencias = computed(() => {
+const comps = data.competencias
+
+const cursoComps = computed(() => {
   if (!cursoSeleccionado.value) return []
-  return competenciasData[cursoSeleccionado.value]?.competencias || []
+  const curso = data.cursos[cursoSeleccionado.value]
+  if (!curso) return []
+  return Object.entries(curso).map(([codigo, subs]) => ({
+    codigo,
+    nombre: comps[codigo].nombre,
+    subcompetencias: subs.map(s => ({
+      codigo: s,
+      nombre: comps[codigo].subcompetencias[s]
+    }))
+  }))
 })
 
 const flatSubcomps = computed(() => {
   const result = []
-  for (const c of competencias.value) {
+  for (const c of cursoComps.value) {
     for (const s of c.subcompetencias) {
-      result.push({ comp: c.codigo, sub: s })
+      result.push({ compCodigo: c.codigo, compNombre: c.nombre, subCodigo: s.codigo, subNombre: s.nombre })
     }
   }
   return result
@@ -79,7 +90,7 @@ function download() {
       ev.evaluables.map(evaluable => getFlag(i, s, evaluable.id))
     )
   )
-  generateExcel(cursoSeleccionado.value, competencias.value, evaluaciones, flagsArray)
+  generateExcel(cursoSeleccionado.value, flatSubcomps.value, evaluaciones, flagsArray)
 }
 </script>
 

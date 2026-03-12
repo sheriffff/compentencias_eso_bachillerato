@@ -45,8 +45,8 @@ defineProps({
         </thead>
         <tbody>
           <tr v-for="(sc, sIdx) in subcompetencias" :key="sIdx">
-            <td class="border border-gray-200 px-3 py-1.5 font-medium text-gray-700">{{ sc.comp }}</td>
-            <td class="border border-gray-200 px-3 py-1.5 text-gray-600">{{ sc.sub }}</td>
+            <td class="border border-gray-200 px-3 py-1.5 font-medium text-gray-700">{{ sc.compCodigo }}</td>
+            <td class="border border-gray-200 px-3 py-1.5 text-gray-600">{{ sc.subCodigo }}</td>
             <template v-for="(ev, i) in evaluaciones" :key="'d-'+i">
               <td
                 v-for="evaluable in ev.evaluables"

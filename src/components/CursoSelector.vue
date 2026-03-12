@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import competenciasData from '../data/competencias.json'
+import data from '../data/competencias.json'
 import Tooltip from './Tooltip.vue'
 
 const model = defineModel()
@@ -14,9 +14,20 @@ const cursos = [
   { key: '2BACH', label: '2º Bach' }
 ]
 
-const competencias = computed(() => {
+const comps = data.competencias
+
+const cursoComps = computed(() => {
   if (!model.value) return []
-  return competenciasData[model.value]?.competencias || []
+  const curso = data.cursos[model.value]
+  if (!curso) return []
+  return Object.entries(curso).map(([codigo, subs]) => ({
+    codigo,
+    nombre: comps[codigo].nombre,
+    subcompetencias: subs.map(s => ({
+      codigo: s,
+      nombre: comps[codigo].subcompetencias[s]
+    }))
+  }))
 })
 </script>
 
@@ -38,20 +49,20 @@ const competencias = computed(() => {
     </div>
 
     <p v-if="model" class="text-sm text-gray-500 mb-2">Competencias y subcompetencias de {{ cursos.find(c => c.key === model)?.label }}</p>
-    <div v-if="competencias.length" class="bg-white border border-gray-200 rounded-lg p-4">
+    <div v-if="cursoComps.length" class="bg-white border border-gray-200 rounded-lg p-4">
       <div
-        v-for="comp in competencias"
+        v-for="comp in cursoComps"
         :key="comp.codigo"
         class="grid gap-x-4 mb-1.5 last:mb-0 items-baseline text-base"
         style="grid-template-columns: 1.5ch 5ch 1fr"
       >
-        <span class="text-right text-gray-500">{{ comp.subcompetencias[0]?.split('.')[0] }}</span>
+        <span class="text-right text-gray-500">{{ comp.subcompetencias[0]?.codigo.split('.')[0] }}</span>
         <Tooltip :text="comp.nombre">
           <span class="font-bold text-indigo-600 cursor-default">{{ comp.codigo }}</span>
         </Tooltip>
         <span class="text-gray-900 flex gap-3">
-          <Tooltip v-for="s in comp.subcompetencias" :key="s" :text="comp.nombre">
-            <span class="cursor-default">{{ s }}</span>
+          <Tooltip v-for="s in comp.subcompetencias" :key="s.codigo" :text="s.nombre">
+            <span class="cursor-default">{{ s.codigo }}</span>
           </Tooltip>
         </span>
       </div>
