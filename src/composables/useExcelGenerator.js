@@ -72,7 +72,7 @@ export function useExcelGenerator() {
     // ==========================================
     // Sheet 1: Comp y Crit
     // ==========================================
-    const ws1 = wb.addWorksheet('Comp y Crit')
+    const ws1 = wb.addWorksheet('Competencias y Criterios')
 
     for (let i = 0; i < 3; i++) {
       if (evalCounts[i] === 0) continue
@@ -130,7 +130,7 @@ export function useExcelGenerator() {
     // ==========================================
     // Sheet 2: Notas EX
     // ==========================================
-    const ws2 = wb.addWorksheet('Notas EX')
+    const ws2 = wb.addWorksheet('Notas Evaluables')
 
     for (let i = 0; i < 3; i++) {
       const weights = getWeights(evalCounts[i])
@@ -212,7 +212,7 @@ export function useExcelGenerator() {
     // ==========================================
     // Sheet 3: Notas COMPET.
     // ==========================================
-    const ws3 = wb.addWorksheet('Notas COMPET.')
+    const ws3 = wb.addWorksheet('Notas Competencias')
 
     for (let i = 0; i < 3; i++) {
       if (S === 0) continue
@@ -278,10 +278,10 @@ export function useExcelGenerator() {
 
     for (let r = 3; r < 3 + ROWS; r++) {
       const nameCell = ws3.getCell(r, 1)
-      nameCell.value = { formula: `'Notas EX'!A${r}` }
+      nameCell.value = { formula: `'Notas Evaluables'!A${r}` }
       nameCell.border = thinBorder
       const apCell = ws3.getCell(r, 2)
-      apCell.value = { formula: `'Notas EX'!B${r}` }
+      apCell.value = { formula: `'Notas Evaluables'!B${r}` }
       apCell.border = thinBorder
 
       for (let i = 0; i < 3; i++) {
@@ -293,8 +293,8 @@ export function useExcelGenerator() {
           for (let j = 0; j < evalCounts[i]; j++) {
             const s2c = colLetter(s2Start[i] + j)
             const s1c = colLetter(s1Start[i] + j)
-            numTerms.push(`'Notas EX'!${s2c}$1*'Notas EX'!${s2c}${r}*'Comp y Crit'!${s1c}$${flagRow}`)
-            denTerms.push(`'Notas EX'!${s2c}$1*'Comp y Crit'!${s1c}$${flagRow}`)
+            numTerms.push(`'Notas Evaluables'!${s2c}$1*'Notas Evaluables'!${s2c}${r}*'Competencias y Criterios'!${s1c}$${flagRow}`)
+            denTerms.push(`'Notas Evaluables'!${s2c}$1*'Competencias y Criterios'!${s1c}$${flagRow}`)
           }
           const formula = `IF((${denTerms.join('+')})=0,"",(${numTerms.join('+')})/(${denTerms.join('+')}))`
           const cell = ws3.getCell(r, s3Start[i] + s)
@@ -312,8 +312,8 @@ export function useExcelGenerator() {
           for (let j = 0; j < evalCounts[i]; j++) {
             const s2c = colLetter(s2Start[i] + j)
             const s1c = colLetter(s1Start[i] + j)
-            numTerms.push(`'Notas EX'!${s2c}$1*'Notas EX'!${s2c}${r}*'Comp y Crit'!${s1c}$${flagRow}`)
-            denTerms.push(`'Notas EX'!${s2c}$1*'Comp y Crit'!${s1c}$${flagRow}`)
+            numTerms.push(`'Notas Evaluables'!${s2c}$1*'Notas Evaluables'!${s2c}${r}*'Competencias y Criterios'!${s1c}$${flagRow}`)
+            denTerms.push(`'Notas Evaluables'!${s2c}$1*'Competencias y Criterios'!${s1c}$${flagRow}`)
           }
         }
         if (numTerms.length > 0) {

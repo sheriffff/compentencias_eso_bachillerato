@@ -3,12 +3,12 @@ import { ref, reactive, computed, watch } from 'vue'
 import data from './data/competencias.json'
 import CursoSelector from './components/CursoSelector.vue'
 import EvalConfig from './components/EvalConfig.vue'
-import FlagTable from './components/FlagTable.vue'
 import { useExcelGenerator } from './composables/useExcelGenerator'
 
 const { generateExcel } = useExcelGenerator()
 
 const cursoSeleccionado = ref('')
+const showHelp = ref(false)
 let nextId = 1
 
 const evaluaciones = reactive([
@@ -17,29 +17,20 @@ const evaluaciones = reactive([
   { nombre: 'Evaluación 3', evaluables: [] }
 ])
 
-const flagStore = reactive({})
-
-const comps = data.competencias
-
-const cursoComps = computed(() => {
-  if (!cursoSeleccionado.value) return []
-  const curso = data.cursos[cursoSeleccionado.value]
-  if (!curso) return []
-  return Object.entries(curso).map(([codigo, subs]) => ({
-    codigo,
-    nombre: comps[codigo].nombre,
-    subcompetencias: subs.map(s => ({
-      codigo: s,
-      nombre: comps[codigo].subcompetencias[s]
-    }))
-  }))
-})
-
 const flatSubcomps = computed(() => {
+  const cursoData = data.cursos[cursoSeleccionado.value]
+  if (!cursoData) return []
+  const { etapa, mapa } = cursoData
+  const critKey = data.criterios[cursoSeleccionado.value] ? cursoSeleccionado.value : etapa
   const result = []
-  for (const c of cursoComps.value) {
-    for (const s of c.subcompetencias) {
-      result.push({ compCodigo: c.codigo, compNombre: c.nombre, subCodigo: s.codigo, subNombre: s.nombre })
+  for (const [ce, crits] of Object.entries(mapa)) {
+    for (const code of crits) {
+      result.push({
+        compCodigo: ce,
+        compNombre: data.competencias[etapa][ce].nombre,
+        subCodigo: code,
+        subNombre: data.criterios[critKey][code]
+      })
     }
   }
   return result
@@ -51,7 +42,6 @@ const hasEvaluables = computed(() =>
 
 watch(cursoSeleccionado, () => {
   evaluaciones.forEach(e => { e.evaluables = [] })
-  Object.keys(flagStore).forEach(k => delete flagStore[k])
 })
 
 function addEvaluable(evalIdx, tipo) {
@@ -75,19 +65,10 @@ function reorderEvaluable(evalIdx, from, to) {
   list.splice(to, 0, item)
 }
 
-function getFlag(evalIdx, subIdx, evId) {
-  return flagStore[`${evalIdx}-${subIdx}-${evId}`] ?? 0
-}
-
-function toggleFlag(evalIdx, subIdx, evId) {
-  const key = `${evalIdx}-${subIdx}-${evId}`
-  flagStore[key] = (flagStore[key] ?? 0) ? 0 : 1
-}
-
 function download() {
-  const flagsArray = evaluaciones.map((ev, i) =>
-    flatSubcomps.value.map((_, s) =>
-      ev.evaluables.map(evaluable => getFlag(i, s, evaluable.id))
+  const flagsArray = evaluaciones.map(ev =>
+    flatSubcomps.value.map(() =>
+      ev.evaluables.map(() => 0)
     )
   )
   generateExcel(cursoSeleccionado.value, flatSubcomps.value, evaluaciones, flagsArray)
@@ -97,9 +78,26 @@ function download() {
 <template>
   <div class="min-h-screen bg-gray-50 py-8">
     <div class="max-w-6xl mx-auto px-4">
-      <h1 class="text-2xl font-bold text-gray-800 mb-8">Evaluación por Competencias</h1>
+      <div class="flex items-baseline justify-between mb-8">
+        <h1 class="text-2xl font-bold text-gray-800">Evaluación por Competencias — Matemáticas</h1>
+        <button @click="showHelp = true" class="px-4 py-2 rounded-lg text-sm font-medium bg-indigo-100 text-indigo-700 hover:bg-indigo-200 transition-colors cursor-pointer whitespace-nowrap">Cómo usar esta web</button>
+      </div>
 
       <CursoSelector v-model="cursoSeleccionado" />
+
+      <div v-if="showHelp" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40" @click.self="showHelp = false">
+        <div class="bg-white rounded-xl shadow-xl p-6 max-w-md mx-4">
+          <h2 class="text-lg font-bold text-gray-800 mb-3">Cómo usar</h2>
+          <ol class="list-decimal list-inside text-sm text-gray-700 space-y-2">
+            <li>Elige el curso.</li>
+            <li>Configura los evaluables (exámenes, cuadernos, trabajos) de cada evaluación.</li>
+            <li>Descarga el Excel.</li>
+            <li>En la hoja "Comp y Crit", rellena los flags (0/1) para indicar qué evaluable evalúa cada criterio.</li>
+            <li>En la hoja "Notas EV", pon las notas de cada alumno. Las medias y competencias se calculan solas.</li>
+          </ol>
+          <button @click="showHelp = false" class="mt-4 w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 cursor-pointer">Cerrar</button>
+        </div>
+      </div>
 
       <template v-if="cursoSeleccionado">
         <EvalConfig
@@ -108,14 +106,6 @@ function download() {
           @remove="removeEvaluable"
           @rename="renameEvaluable"
           @reorder="reorderEvaluable"
-        />
-
-        <FlagTable
-          v-if="hasEvaluables"
-          :evaluaciones="evaluaciones"
-          :subcompetencias="flatSubcomps"
-          :get-flag="getFlag"
-          :toggle-flag="toggleFlag"
         />
 
         <button

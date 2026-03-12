@@ -1,137 +1,267 @@
 {
   "competencias": {
-    "CCL": {
-      "nombre": "Competencia en Comunicación Lingüística",
-      "subcompetencias": {
-        "1.1": "Expresarse de forma oral con fluidez y coherencia",
-        "1.2": "Comprender e interpretar textos orales y escritos",
-        "1.3": "Producir textos escritos con corrección y adecuación",
-        "1.4": "Interactuar en situaciones comunicativas diversas",
-        "1.5": "Reflexionar sobre el funcionamiento de la lengua"
-      }
+    "ESO": {
+      "CE1": { "nombre": "Resolución de problemas" },
+      "CE2": { "nombre": "Análisis de soluciones" },
+      "CE3": { "nombre": "Conjeturas y razonamiento" },
+      "CE4": { "nombre": "Pensamiento computacional" },
+      "CE5": { "nombre": "Conexiones matemáticas" },
+      "CE6": { "nombre": "Conexiones interdisciplinares" },
+      "CE7": { "nombre": "Representación matemática" },
+      "CE8": { "nombre": "Comunicación matemática" },
+      "CE9": { "nombre": "Desarrollo personal" },
+      "CE10": { "nombre": "Trabajo en equipo" }
     },
-    "CP": {
-      "nombre": "Competencia Plurilingüe",
-      "subcompetencias": {
-        "2.1": "Usar lenguas extranjeras como medio de comunicación",
-        "2.2": "Valorar la diversidad lingüística y cultural",
-        "2.3": "Aplicar estrategias de mediación lingüística"
-      }
+    "BACH": {
+      "CE1": { "nombre": "Modelización y resolución de problemas" },
+      "CE2": { "nombre": "Verificación de soluciones" },
+      "CE3": { "nombre": "Conjeturas e investigación" },
+      "CE4": { "nombre": "Pensamiento computacional" },
+      "CE5": { "nombre": "Conexiones matemáticas" },
+      "CE6": { "nombre": "Conexiones interdisciplinares" },
+      "CE7": { "nombre": "Representación matemática" },
+      "CE8": { "nombre": "Comunicación matemática" },
+      "CE9": { "nombre": "Destrezas personales y trabajo en equipo" }
+    }
+  },
+  "criterios": {
+    "ESO": {
+      "1.1": "Interpretar problemas matemáticos organizando datos y relaciones",
+      "1.2": "Aplicar herramientas y estrategias apropiadas para resolver problemas",
+      "1.3": "Obtener soluciones matemáticas de un problema",
+      "2.1": "Comprobar la corrección matemática de las soluciones",
+      "2.2": "Comprobar la validez y coherencia de las soluciones en el contexto",
+      "2.3": "Formular y comprobar conjeturas de forma guiada",
+      "2.4": "Identificar conexiones coherentes entre matemáticas y otras materias",
+      "3.1": "Formular y comprobar conjeturas analizando patrones y propiedades",
+      "3.2": "Plantear variantes de un problema modificando datos o condiciones",
+      "3.3": "Emplear herramientas tecnológicas en la comprobación de conjeturas",
+      "3.4": "Reconocer y usar conexiones entre conocimientos matemáticos",
+      "3.5": "Reconocer situaciones susceptibles de ser formuladas matemáticamente",
+      "4.1": "Reconocer patrones y descomponer un problema en partes más simples",
+      "4.2": "Modelizar situaciones interpretando y modificando algoritmos",
+      "5.1": "Realizar conexiones entre diferentes procesos matemáticos",
+      "5.2": "Analizar y poner en práctica conexiones entre procesos matemáticos",
+      "6.2": "Identificar conexiones entre las matemáticas y otras materias",
+      "6.3": "Reconocer la aportación de las matemáticas al progreso humano",
+      "7.1": "Representar conceptos y resultados matemáticos de modos distintos",
+      "7.2": "Elaborar representaciones matemáticas para la resolución de problemas",
+      "8.1": "Comunicar información utilizando el lenguaje matemático apropiado",
+      "8.2": "Reconocer y emplear el lenguaje matemático en la vida cotidiana",
+      "9.1": "Gestionar las emociones propias generando expectativas positivas",
+      "9.2": "Mostrar actitud positiva y perseverante ante el aprendizaje",
+      "10.1": "Colaborar activamente y construir relaciones en equipos heterogéneos",
+      "10.2": "Participar en el reparto de tareas aportando valor al equipo"
     },
-    "STEM": {
-      "nombre": "Competencia Matemática y en Ciencia, Tecnología e Ingeniería",
-      "subcompetencias": {
-        "3.1": "Resolver problemas aplicando estrategias matemáticas",
-        "3.2": "Utilizar el pensamiento científico para entender el entorno",
-        "3.3": "Interpretar y comunicar información científica",
-        "3.4": "Aplicar el método científico en proyectos de investigación",
-        "3.5": "Modelizar situaciones del mundo real con herramientas matemáticas"
-      }
+    "1BACH-C": {
+      "1.1": "Manejar estrategias y herramientas en la modelización y resolución de problemas de la ciencia y la tecnología",
+      "1.2": "Obtener todas las posibles soluciones matemáticas describiendo el procedimiento",
+      "2.1": "Comprobar la validez matemática de las soluciones con razonamiento y argumentación",
+      "2.2": "Seleccionar la solución más adecuada en función del contexto",
+      "3.1": "Adquirir nuevo conocimiento matemático formulando conjeturas de forma guiada",
+      "3.2": "Emplear herramientas tecnológicas en la formulación de conjeturas o problemas",
+      "4.1": "Modelizar y resolver situaciones de la ciencia y la tecnología con pensamiento computacional",
+      "5.1": "Investigar y conectar las diferentes ideas matemáticas",
+      "5.2": "Resolver problemas aplicando conexiones entre ideas matemáticas",
+      "6.1": "Resolver problemas estableciendo conexiones con el mundo real y otras áreas",
+      "6.2": "Analizar la aportación de las matemáticas al progreso de la humanidad",
+      "7.1": "Representar ideas matemáticas seleccionando las tecnologías adecuadas",
+      "7.2": "Seleccionar y utilizar diversas formas de representación",
+      "8.1": "Comunicar ideas matemáticas con soporte, terminología y rigor apropiados",
+      "8.2": "Reconocer y emplear el lenguaje matemático en diferentes contextos",
+      "9.1": "Afrontar situaciones de incertidumbre aprendiendo del error",
+      "9.2": "Mostrar actitud positiva y perseverante ante la crítica razonada",
+      "9.3": "Participar activamente en tareas matemáticas en equipos heterogéneos"
     },
-    "CD": {
-      "nombre": "Competencia Digital",
-      "subcompetencias": {
-        "4.1": "Buscar y gestionar información en entornos digitales",
-        "4.2": "Crear contenidos digitales con distintas herramientas",
-        "4.3": "Usar tecnologías digitales de forma segura y responsable",
-        "4.4": "Resolver problemas técnicos con herramientas digitales"
-      }
+    "2BACH-C": {
+      "1.1": "Manejar estrategias y herramientas seleccionando las más adecuadas según su eficiencia",
+      "1.2": "Obtener todas las posibles soluciones matemáticas describiendo el procedimiento",
+      "2.1": "Demostrar la validez matemática de las soluciones con razonamiento y argumentación",
+      "2.2": "Seleccionar la solución más adecuada en función del contexto",
+      "3.1": "Formular, razonar y justificar conjeturas y problemas de forma autónoma",
+      "3.2": "Integrar herramientas tecnológicas en la formulación de conjeturas y problemas",
+      "4.1": "Modelizar y resolver situaciones con pensamiento computacional generalizando algoritmos",
+      "5.1": "Demostrar una visión matemática integrada conectando ideas",
+      "5.2": "Resolver problemas aplicando conexiones entre ideas matemáticas",
+      "6.1": "Resolver problemas estableciendo conexiones reflexivas con el mundo real",
+      "6.2": "Valorar la contribución de las matemáticas a los retos científicos y tecnológicos",
+      "7.1": "Representar ideas matemáticas seleccionando las tecnologías adecuadas",
+      "7.2": "Seleccionar y utilizar diversas formas de representación",
+      "8.1": "Comunicar ideas matemáticas con soporte, terminología y rigor apropiados",
+      "8.2": "Reconocer y emplear el lenguaje matemático en diferentes contextos",
+      "9.1": "Afrontar situaciones de incertidumbre y tomar decisiones aprendiendo del error",
+      "9.2": "Mostrar actitud positiva y perseverante ante la crítica razonada",
+      "9.3": "Trabajar activamente en equipos heterogéneos fomentando el bienestar del equipo"
     },
-    "CPSAA": {
-      "nombre": "Competencia Personal, Social y de Aprender a Aprender",
-      "subcompetencias": {
-        "5.1": "Regular las emociones propias y desarrollar resiliencia",
-        "5.2": "Establecer relaciones interpersonales positivas",
-        "5.3": "Reflexionar sobre el propio proceso de aprendizaje",
-        "5.4": "Adoptar hábitos de vida saludable y sostenible"
-      }
+    "1BACH-S": {
+      "1.1": "Emplear estrategias y herramientas para resolver problemas de las ciencias sociales",
+      "1.2": "Obtener todas las posibles soluciones matemáticas describiendo el procedimiento",
+      "2.1": "Comprobar la validez matemática de las soluciones con razonamiento y argumentación",
+      "2.2": "Seleccionar la solución más adecuada en función del contexto",
+      "3.1": "Adquirir nuevo conocimiento matemático formulando conjeturas de forma guiada",
+      "3.2": "Emplear herramientas tecnológicas en la formulación de conjeturas o problemas",
+      "4.1": "Modelizar y resolver situaciones de las ciencias sociales con pensamiento computacional",
+      "5.1": "Investigar y conectar las diferentes ideas matemáticas",
+      "5.2": "Resolver problemas aplicando conexiones entre ideas matemáticas",
+      "6.1": "Resolver problemas estableciendo conexiones con el mundo real y otras áreas",
+      "6.2": "Analizar la aportación de las matemáticas a las ciencias sociales",
+      "7.1": "Representar ideas matemáticas seleccionando las tecnologías adecuadas",
+      "7.2": "Seleccionar y utilizar diversas formas de representación",
+      "8.1": "Comunicar ideas matemáticas con soporte, terminología y rigor apropiados",
+      "8.2": "Reconocer y emplear el lenguaje matemático en diferentes contextos",
+      "9.1": "Afrontar situaciones de incertidumbre aprendiendo del error",
+      "9.2": "Mostrar actitud positiva y perseverante ante la crítica razonada",
+      "9.3": "Participar activamente en tareas matemáticas en equipos heterogéneos"
     },
-    "CC": {
-      "nombre": "Competencia Ciudadana",
-      "subcompetencias": {
-        "6.1": "Comprender el funcionamiento de las instituciones democráticas",
-        "6.2": "Participar de forma activa y responsable en la sociedad",
-        "6.3": "Valorar la diversidad social y cultural como riqueza"
-      }
-    },
-    "CE": {
-      "nombre": "Competencia Emprendedora",
-      "subcompetencias": {
-        "7.1": "Analizar necesidades y oportunidades del entorno",
-        "7.2": "Desarrollar ideas y soluciones con creatividad",
-        "7.3": "Gestionar recursos para llevar a cabo proyectos"
-      }
-    },
-    "CCEC": {
-      "nombre": "Competencia en Conciencia y Expresiones Culturales",
-      "subcompetencias": {
-        "8.1": "Conocer y respetar el patrimonio cultural y artístico",
-        "8.2": "Participar en producciones artísticas individuales y colectivas",
-        "8.3": "Expresarse a través de distintos lenguajes artísticos",
-        "8.4": "Valorar la diversidad de expresiones culturales"
-      }
+    "2BACH-S": {
+      "1.1": "Emplear estrategias y herramientas seleccionando la más adecuada según su eficiencia",
+      "1.2": "Obtener todas las posibles soluciones matemáticas describiendo el procedimiento",
+      "2.1": "Demostrar la validez matemática de las soluciones con razonamiento y argumentación",
+      "2.2": "Seleccionar la solución más adecuada en función del contexto",
+      "3.1": "Formular, razonar y justificar conjeturas y problemas de forma autónoma",
+      "3.2": "Integrar herramientas tecnológicas en la formulación de conjeturas y problemas",
+      "4.1": "Modelizar y resolver situaciones de las ciencias sociales generalizando algoritmos",
+      "5.1": "Investigar y conectar las diferentes ideas matemáticas",
+      "6.1": "Resolver problemas estableciendo conexiones reflexivas con el mundo real",
+      "6.2": "Valorar la contribución de las matemáticas a los retos de las ciencias sociales",
+      "7.1": "Representar y visualizar ideas matemáticas seleccionando las tecnologías adecuadas",
+      "7.2": "Seleccionar y utilizar diversas formas de representación",
+      "8.1": "Comunicar ideas matemáticas con soporte, terminología y rigor apropiados",
+      "8.2": "Reconocer y emplear el lenguaje matemático en diferentes contextos",
+      "9.1": "Afrontar situaciones de incertidumbre y tomar decisiones aprendiendo del error",
+      "9.2": "Mostrar perseverancia y motivación positiva ante la crítica razonada",
+      "9.3": "Trabajar activamente en equipos heterogéneos"
     }
   },
   "cursos": {
     "1ESO": {
-      "CCL": ["1.1", "1.2", "1.3"],
-      "CP": ["2.1", "2.2"],
-      "STEM": ["3.1", "3.2", "3.3"],
-      "CD": ["4.1", "4.2"],
-      "CPSAA": ["5.1", "5.2"],
-      "CC": ["6.1", "6.2"],
-      "CE": ["7.1", "7.2"],
-      "CCEC": ["8.1", "8.2"]
+      "etapa": "ESO",
+      "mapa": {
+        "CE1": ["1.1", "1.2", "1.3"],
+        "CE2": ["2.1"],
+        "CE3": ["3.1"],
+        "CE5": ["5.1"],
+        "CE7": ["7.1"],
+        "CE8": ["8.1"],
+        "CE9": ["9.1", "9.2"],
+        "CE10": ["10.1"]
+      }
     },
     "2ESO": {
-      "CCL": ["1.1", "1.2", "1.3", "1.4"],
-      "CP": ["2.1", "2.2", "2.3"],
-      "STEM": ["3.1", "3.2", "3.3"],
-      "CD": ["4.1", "4.2", "4.3"],
-      "CPSAA": ["5.1", "5.2", "5.3"],
-      "CC": ["6.1", "6.2"],
-      "CE": ["7.1", "7.2", "7.3"],
-      "CCEC": ["8.1", "8.2", "8.3"]
+      "etapa": "ESO",
+      "mapa": {
+        "CE1": ["1.1", "1.2", "1.3"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["2.3", "3.2"],
+        "CE4": ["4.1", "4.2"],
+        "CE5": ["5.1"],
+        "CE6": ["2.4", "6.2"],
+        "CE7": ["7.1"],
+        "CE8": ["8.1"],
+        "CE9": ["9.1", "9.2"],
+        "CE10": ["10.1"]
+      }
     },
     "3ESO": {
-      "CCL": ["1.1", "1.2", "1.3", "1.4"],
-      "CP": ["2.1", "2.2", "2.3"],
-      "STEM": ["3.1", "3.2", "3.3", "3.4"],
-      "CD": ["4.1", "4.2", "4.3"],
-      "CPSAA": ["5.1", "5.2", "5.3"],
-      "CC": ["6.1", "6.2", "6.3"],
-      "CE": ["7.1", "7.2", "7.3"],
-      "CCEC": ["8.1", "8.2", "8.3"]
+      "etapa": "ESO",
+      "mapa": {
+        "CE1": ["1.1", "1.2", "1.3"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2", "3.3"],
+        "CE4": ["4.1", "4.2"],
+        "CE5": ["3.4", "5.2"],
+        "CE6": ["3.5", "6.2", "6.3"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2"],
+        "CE10": ["10.1", "10.2"]
+      }
     },
-    "4ESO": {
-      "CCL": ["1.1", "1.2", "1.3", "1.4"],
-      "CP": ["2.1", "2.2", "2.3"],
-      "STEM": ["3.1", "3.2", "3.3", "3.4"],
-      "CD": ["4.1", "4.2", "4.3", "4.4"],
-      "CPSAA": ["5.1", "5.2", "5.3"],
-      "CC": ["6.1", "6.2", "6.3"],
-      "CE": ["7.1", "7.2", "7.3"],
-      "CCEC": ["8.1", "8.2", "8.3"]
+    "4ESO-A": {
+      "etapa": "ESO",
+      "mapa": {
+        "CE1": ["1.1", "1.2", "1.3"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2", "3.3"],
+        "CE4": ["4.1", "4.2"],
+        "CE5": ["5.1", "5.2"],
+        "CE6": ["3.4", "6.2", "6.3"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2"],
+        "CE10": ["10.1", "10.2"]
+      }
     },
-    "1BACH": {
-      "CCL": ["1.1", "1.2", "1.3", "1.4", "1.5"],
-      "CP": ["2.1", "2.2", "2.3"],
-      "STEM": ["3.1", "3.2", "3.3", "3.4"],
-      "CD": ["4.1", "4.2", "4.3", "4.4"],
-      "CPSAA": ["5.1", "5.2", "5.3", "5.4"],
-      "CC": ["6.1", "6.2", "6.3"],
-      "CE": ["7.1", "7.2", "7.3"],
-      "CCEC": ["8.1", "8.2", "8.3", "8.4"]
+    "4ESO-B": {
+      "etapa": "ESO",
+      "mapa": {
+        "CE1": ["1.1", "1.2", "1.3"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2", "3.3"],
+        "CE4": ["4.1", "4.2"],
+        "CE5": ["5.1", "5.2"],
+        "CE6": ["3.4", "6.2", "6.3"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2"],
+        "CE10": ["10.1", "10.2"]
+      }
     },
-    "2BACH": {
-      "CCL": ["1.1", "1.2", "1.3", "1.4", "1.5"],
-      "CP": ["2.1", "2.2", "2.3"],
-      "STEM": ["3.1", "3.2", "3.3", "3.4", "3.5"],
-      "CD": ["4.1", "4.2", "4.3", "4.4"],
-      "CPSAA": ["5.1", "5.2", "5.3", "5.4"],
-      "CC": ["6.1", "6.2", "6.3"],
-      "CE": ["7.1", "7.2", "7.3"],
-      "CCEC": ["8.1", "8.2", "8.3", "8.4"]
+    "1BACH-C": {
+      "etapa": "BACH",
+      "mapa": {
+        "CE1": ["1.1", "1.2"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2"],
+        "CE4": ["4.1"],
+        "CE5": ["5.1", "5.2"],
+        "CE6": ["6.1", "6.2"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2", "9.3"]
+      }
+    },
+    "1BACH-S": {
+      "etapa": "BACH",
+      "mapa": {
+        "CE1": ["1.1", "1.2"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2"],
+        "CE4": ["4.1"],
+        "CE5": ["5.1", "5.2"],
+        "CE6": ["6.1", "6.2"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2", "9.3"]
+      }
+    },
+    "2BACH-C": {
+      "etapa": "BACH",
+      "mapa": {
+        "CE1": ["1.1", "1.2"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2"],
+        "CE4": ["4.1"],
+        "CE5": ["5.1", "5.2"],
+        "CE6": ["6.1", "6.2"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2", "9.3"]
+      }
+    },
+    "2BACH-S": {
+      "etapa": "BACH",
+      "mapa": {
+        "CE1": ["1.1", "1.2"],
+        "CE2": ["2.1", "2.2"],
+        "CE3": ["3.1", "3.2"],
+        "CE4": ["4.1"],
+        "CE5": ["5.1"],
+        "CE6": ["6.1", "6.2"],
+        "CE7": ["7.1", "7.2"],
+        "CE8": ["8.1", "8.2"],
+        "CE9": ["9.1", "9.2", "9.3"]
+      }
     }
   }
 }
