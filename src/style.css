@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary-50: oklch(0.97 0.015 295);
+  --color-primary-100: oklch(0.93 0.035 295);
+  --color-primary-200: oklch(0.86 0.07 295);
+  --color-primary-300: oklch(0.76 0.12 295);
+  --color-primary-400: oklch(0.65 0.17 295);
+  --color-primary-500: oklch(0.55 0.21 295);
+  --color-primary-600: oklch(0.47 0.22 295);
+  --color-primary-700: oklch(0.4 0.2 295);
+
+  --color-accent-400: oklch(0.7 0.18 330);
+  --color-accent-500: oklch(0.6 0.22 330);
+  --color-accent-600: oklch(0.5 0.22 330);
+
+  --color-escuelia-brand: #2f5a72;
+  --color-escuelia-ink: #1d2530;
+
+  --font-script: "Dancing Script", cursive;
+  --font-ia: "Familjen Grotesk", "Inter", sans-serif;
+}
+
+body {
+  background: oklch(0.98 0.005 295);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer utilities {
+  .glass {
+    background: oklch(1 0 0 / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(1 0 0 / 0.2);
+  }
+}
+
+.wordmark {
+  --wm-size: 32px;
+  --wm-ia-scale: 0.979;
+  --wm-gap: 0.11em;
+  --wm-ia-dy: 0.03em;
+  --wm-ia-weight: 800;
+  --wm-ia-track: 0em;
+
+  display: inline-flex;
+  align-items: baseline;
+  font-size: var(--wm-size);
+  gap: var(--wm-gap);
+  line-height: 1;
+}
+.wordmark .escuel {
+  font-family: var(--font-script);
+  font-weight: 400;
+  color: var(--color-escuelia-ink);
+}
+.wordmark .ia {
+  font-family: var(--font-ia);
+  font-weight: var(--wm-ia-weight);
+  color: var(--color-escuelia-brand);
+  letter-spacing: var(--wm-ia-track);
+  font-size: calc(1em * var(--wm-ia-scale));
+  transform: translateY(var(--wm-ia-dy));
+}
