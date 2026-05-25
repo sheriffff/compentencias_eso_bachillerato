@@ -1,5 +1,7 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
+import { Analytics } from '@vercel/analytics/vue'
+import { SpeedInsights } from '@vercel/speed-insights/vue'
 import data from './data/competencias.json'
 import CursoSelector from './components/CursoSelector.vue'
 import EvalConfig from './components/EvalConfig.vue'
@@ -133,5 +135,7 @@ function download() {
         </button>
       </template>
     </div>
+    <Analytics />
+    <SpeedInsights />
   </div>
 </template>
